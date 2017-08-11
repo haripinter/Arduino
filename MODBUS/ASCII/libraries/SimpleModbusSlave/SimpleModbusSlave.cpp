@@ -182,7 +182,7 @@ unsigned int modbus_update()
             // minus the request bytes.
 					  // id + function + (2 * address bytes) + (2 * no of register bytes) + 
             // byte count + (2 * CRC bytes) = 9 bytes
-					  if (frame[6] == (buffer - 9)) 
+					  if (frame[6] == (buffer - 10)) // for byte count = 2, buffer is 12 | if byte count=4 then buffer = 14
 					  {
 						  if (startingAddress < holdingRegsSize) // check exception 2 ILLEGAL DATA ADDRESS
 						  {
